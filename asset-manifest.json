@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/MyToy/static/css/main.02a1d98b.css",
+    "main.js": "/MyToy/static/js/main.d846f57d.js",
+    "static/js/453.3f8b56fa.chunk.js": "/MyToy/static/js/453.3f8b56fa.chunk.js",
+    "static/media/i3.jpg": "/MyToy/static/media/i3.e9e1e76702dcb959c018.jpg",
+    "static/media/i1.jpg": "/MyToy/static/media/i1.5c2d6022774c8bda083b.jpg",
+    "index.html": "/MyToy/index.html",
+    "main.02a1d98b.css.map": "/MyToy/static/css/main.02a1d98b.css.map",
+    "main.d846f57d.js.map": "/MyToy/static/js/main.d846f57d.js.map",
+    "453.3f8b56fa.chunk.js.map": "/MyToy/static/js/453.3f8b56fa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.02a1d98b.css",
+    "static/js/main.d846f57d.js"
+  ]
+}
