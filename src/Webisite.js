@@ -1,7 +1,7 @@
 import React from 'react'
 import Content2 from './Content2'
 import CardSections from './CardSections'
-import CardSections2 from './CardSection2'
+import CardSection2 from './CardSection2'
 import Simple from './Simple'
 import Free from './Free'
 import Content from './Content'
@@ -20,7 +20,7 @@ function Webisite() {
       <Content></Content>
       <Content2></Content2>
       <CardSections></CardSections>
-      <CardSections2></CardSections2>
+      <CardSection2></CardSection2>
       <Story></Story>
       <Simple></Simple>
       <Free></Free>

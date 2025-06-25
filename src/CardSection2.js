@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { data } from './All';
 import { dta } from './dta';
 
-function CardSections2() {
+function CardSection2() {
 
     // const [data1, setData] = useState('');
 
@@ -50,4 +50,4 @@ function CardSections2() {
         </div>
     )
 }
-export default CardSections2
+export default CardSection2
