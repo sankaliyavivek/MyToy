@@ -25,7 +25,7 @@ function App() {
   return (
     <div className='App'>
       <UserLogin.Provider value={{logname,setlogname,logout,setlogout,val,setval}}>
-        <Toy></Toy>
+        <Toy basename="/MyToy"></Toy>
       </UserLogin.Provider>
     </div>
   );
