@@ -2,7 +2,7 @@
   "name": "toy",
   "version": "0.1.0",
   "private": true,
-   "homepage": "https://sankaliyavivek.github.io/MyToy",
+   "homepage": "https://sankaliyavivek.github.io/MyToy/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "@syncfusion/ej2-react-grids": "^25.1.42",
