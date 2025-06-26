@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { data } from './All';
+// import { data } from './All';
 
 function Story() {
 
