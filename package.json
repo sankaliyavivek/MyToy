@@ -2,6 +2,7 @@
   "name": "toy",
   "version": "0.1.0",
   "private": true,
+   "homepage": "https://my-toy-i6cs.vercel.app/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "@syncfusion/ej2-react-grids": "^25.1.42",

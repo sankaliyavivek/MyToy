@@ -22,7 +22,7 @@ function Toy() {
     <div>
      <BrowserRouter >
      <Routes>
-      <Route path='/MyToy' element={<Webisite></Webisite>}></Route>
+      <Route path='/' element={<Webisite></Webisite>}></Route>
         <Route path='/catalog' element={<Catalog></Catalog>}></Route>
         <Route path='/delivery' element={<Delivery></Delivery>}></Route>
         <Route path='/about' element={<About></About>}></Route>
