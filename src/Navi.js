@@ -13,7 +13,7 @@ function MyVerticallyCenteredModal(props) {
 
 
 const extractNumber = (price) => {
-  const priceStr = typeof price === 'string' ? price : String(price || '');
+  const priceStr = String(price ?? '');
   const match = priceStr.match(/[\d,.]+/);
   return match ? parseFloat(match[0].replace(/,/g, '')) : 0;
 };
