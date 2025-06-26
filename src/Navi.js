@@ -13,10 +13,10 @@ function MyVerticallyCenteredModal(props) {
 
 
 const extractNumber = (price) => {
-  const priceStr = String(price ?? '');
-  const match = priceStr.match(/[\d,.]+/);
+  const match = String(price || '').match(/[\d,.]+/);
   return match ? parseFloat(match[0].replace(/,/g, '')) : 0;
 };
+
   const updateCart = (newCart) => {
     localStorage.setItem('cart', JSON.stringify(newCart));
     setfilldata(newCart);
