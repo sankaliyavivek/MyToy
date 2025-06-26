@@ -12,12 +12,11 @@ function MyVerticallyCenteredModal(props) {
   }, [props.show]); // refresh data every time modal is shown
 
 
-  const extractNumber = (price) => {
-  // This will extract the number even from strings like "$ 24.00 USD"
-  const match = price.match(/[\d,.]+/);
+const extractNumber = (price) => {
+  const priceStr = typeof price === 'string' ? price : String(price || '');
+  const match = priceStr.match(/[\d,.]+/);
   return match ? parseFloat(match[0].replace(/,/g, '')) : 0;
 };
-
   const updateCart = (newCart) => {
     localStorage.setItem('cart', JSON.stringify(newCart));
     setfilldata(newCart);
