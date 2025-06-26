@@ -376,7 +376,7 @@ export var data = [
         insta: [
             {
                 id: 1,
-                url: "doll.jpg",
+                url: "doll.jpg"
 
             },
             {
@@ -398,7 +398,7 @@ export var data = [
             {
                 id: 6,
                 url: "5.jpg"
-            },
+            }
         ]
     },
     {
@@ -410,6 +410,6 @@ export var data = [
                 "price": 38
             }
         ]
-    }
+    },
 
 ]
