@@ -209,6 +209,7 @@ padding-left: 10px;
 .card1 {
   display: flex;
   flex-wrap: wrap;
+  row-gap: 20px;
   justify-content: space-between;
 }
 
