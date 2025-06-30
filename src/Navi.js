@@ -1,24 +1,30 @@
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 
-function MyVerticallyCenteredModal(props) {
+ export function MyVerticallyCenteredModal(props) {
   const [filldata, setfilldata] = useState([]);
 
+  const getUserCartKey = () => {
+    const loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
+    return loggedUser ? `cart_${loggedUser.email}` : 'cart';
+  };
+
   useEffect(() => {
-    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    const userCartKey = getUserCartKey();
+    const cartData = JSON.parse(localStorage.getItem(userCartKey)) || [];
     setfilldata(cartData);
-  }, [props.show]); // refresh data every time modal is shown
+  }, [props.show]);
 
-
-const extractNumber = (price) => {
-  const match = String(price || '').match(/[\d,.]+/);
-  return match ? parseFloat(match[0].replace(/,/g, '')) : 0;
-};
+  const extractNumber = (price) => {
+    const match = String(price || '').match(/[\d,.]+/);
+    return match ? parseFloat(match[0].replace(/,/g, '')) : 0;
+  };
 
   const updateCart = (newCart) => {
-    localStorage.setItem('cart', JSON.stringify(newCart));
+    const userCartKey = getUserCartKey();
+    localStorage.setItem(userCartKey, JSON.stringify(newCart));
     setfilldata(newCart);
   };
 
@@ -61,10 +67,9 @@ const extractNumber = (price) => {
     });
   };
 
-const calculateSubtotal = () => {
-  return filldata.reduce((total, item) => total + extractNumber(item.price) * item.quantity, 0);
-};
-
+  const calculateSubtotal = () => {
+    return filldata.reduce((total, item) => total + extractNumber(item.price) * item.quantity, 0);
+  };
 
   return (
     <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -84,7 +89,7 @@ const calculateSubtotal = () => {
                   </div>
                   <div>
                     <h5>{i.name}</h5>
-                  <span>Total Price: ₹{(extractNumber(i.price) * i.quantity).toFixed(2)}</span>
+                    <span>Total Price: ₹{(extractNumber(i.price) * i.quantity).toFixed(2)}</span>
 
                     <div className="my-2">
                       <button className='btn btn-sm btn-danger' onClick={() => decrement(i.id)}>-</button>
@@ -98,9 +103,7 @@ const calculateSubtotal = () => {
               </div>
             ))}
             <div className='text-end mt-3 px-5'>
-             <h5>Subtotal: ₹{calculateSubtotal().toFixed(2)}</h5>
-
-
+              <h5>Subtotal: ₹{calculateSubtotal().toFixed(2)}</h5>
             </div>
           </>
         )}
@@ -110,14 +113,19 @@ const calculateSubtotal = () => {
   );
 }
 
+// import React, { useEffect, useState } from 'react';
+// import MyVerticallyCenteredModal from './MyVerticallyCenteredModal'; // if it's separate
+// import { JSON } from 'react-toastify';
+
 function Jay() {
   const [modalShow, setModalShow] = useState(false);
   const [filldata, setfilldata] = useState([]);
 
   useEffect(() => {
-    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    const loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
+    const userCartKey = loggedUser ? `cart_${loggedUser.email}` : null;
+    const cartData = userCartKey ? JSON.parse(localStorage.getItem(userCartKey)) || [] : [];
     setfilldata(cartData);
-    console.log(cartData)
   }, [modalShow]);
 
   return (

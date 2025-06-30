@@ -12,6 +12,7 @@ function LogInpage() {
 
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedUser"));
+    console.log(loggedInUser)
     if (loggedInUser) {
       navigate('/');
     }
@@ -74,17 +75,8 @@ function LogInpage() {
           onChange={(e) => setPassword(e.target.value)}
           id="password"
         />
-        <button type="submit" style={{ marginTop: '10px' }}>Log In</button>
-        <div className="social">
-          <div className="go">
-            <i className="fab fa-google"></i>
-            <a href="https://www.google.co.in/" target='_blank' rel="noreferrer">Google</a>
-          </div>
-          <div className="fb">
-            <i className="fab fa-facebook"></i>
-            <a href="https://x.com/i/flow/login" target='_blank' rel="noreferrer">Twitter</a>
-          </div>
-        </div>
+        <button type="submit" style={{ marginTop: '40px' }}>Log In</button>
+       
       </form>
       <ToastContainer />
     </div>

@@ -108,10 +108,10 @@ padding-left: 10px;
   width: 40%;
 }
 
-.backimg:hover .say {
+/* .backimg:hover .say {
   transform: scale(1.1);
   transition: 1s;
-}
+} */
 
 .say1 {
   border-radius: 20px;
@@ -226,8 +226,8 @@ padding-left: 10px;
     width: 100% !important;
   }
 .sec1:hover {
-  transform: scale(1.09);
-  overflow: hidden;
+  transform: scale(1.03);
+  /* overflow: hidden; */
   transition: .4s;
   box-shadow: 0 0 30px rgb(207, 205, 205);
 }
@@ -318,7 +318,7 @@ padding-left: 10px;
 }
 .ins :hover
 {
-  transform: scale(1.07);
+  transform: scale(1.03);
   transition: 1s;
 }
 .kau
@@ -525,6 +525,7 @@ body{
     transform: translate(-50%,-50%);
     left: 50%;
     top: 50%;
+    
 }
 .background .shape{
     height: 200px;
@@ -550,7 +551,7 @@ body{
     bottom: -80px;
 }
 .for{
-    height: 520px;
+    height: 480px;
     width: 400px;
     background-color: black;
     opacity: .9;
@@ -634,6 +635,18 @@ body{
   margin-right: 4px;
 }
 
+
+.register-form {
+    height: 620px !important; /* Adjust as needed */
+}
+
+/* .register-form label {
+  margin-top: 20px;
+}
+
+.register-form input {
+  margin-top: 8px;
+} */
 
 /* 8888888888888888888 */
 

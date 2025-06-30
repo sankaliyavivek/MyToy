@@ -18,34 +18,35 @@ function StuffedToyView() {
     setStuffed(product);
   }, [sid]);
 
+const addToCart = () => {
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 
-  const addToCart = () => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
+  if (!loggedUser) {
+    alert("Please log in to add items to your cart.");
+    navigat("/log");
+    return;
+  }
 
-    if (!isLoggedIn) {
-      alert("Please log in to add items to your cart.");
-      navigat('/log')
-      return;
-    }
+  if (!stuffed || !stuffed.id) {
+    alert("Invalid product.");
+    return;
+  }
 
-    if (!stuffed || !stuffed.id) {
-      alert("Invalid product.");
-      return;
-    }
+  const cartKey = `cart_${loggedUser.email}`;
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existingIndex = cart.findIndex(item => item.id === stuffed.id);
 
-    const existingItemIndex = cart.findIndex(item => item.id === stuffed.id);
+  if (existingIndex !== -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push({ ...stuffed, quantity: 1 });
+  }
 
-    if (existingItemIndex !== -1) {
-      cart[existingItemIndex].quantity += 1;
-    } else {
-      cart.push({ ...stuffed, quantity: 1 });
-    }
+  localStorage.setItem(cartKey, JSON.stringify(cart));
+  alert("Added to cart!");
+};
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Added to cart!");
-  };
 
   if (!stuffed) {
     return (

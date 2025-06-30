@@ -19,47 +19,53 @@ function View1() {
     setjay(selectedToy || null);
   }, [eid]);
 
-  const enterdata = () => {
-    if (!logout) {
-      toast.info('Login first!', {
-        position: 'top-center',
-        autoClose: 3000,
-        transition: Bounce,
-      });
-      return;
-    }
+ const enterdata = () => {
+  if (!logout) {
+    toast.info('Login first!', {
+      position: 'top-center',
+      autoClose: 3000,
+      transition: Bounce,
+    });
+    return;
+  }
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let exists = cart.find((item) => item.id === jay1.id);
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+  if (!loggedUser) return;
 
-    if (exists) {
-      exists.quantity = parseInt(exists.quantity) + parseInt(val);
-      exists.price = parseFloat(jay1.price) * exists.quantity;
-      toast.success('Quantity updated in cart!', {
-        position: 'top-center',
-        autoClose: 3000,
-        transition: Bounce,
-        theme: 'colored',
-      });
-    } else {
-      let cartItem = {
-        id: jay1.id,
-        url: jay1.url,
-        name: jay1.name,
-        price: parseFloat(jay1.price) * val,
-        quantity: parseInt(val),
-      };
-      cart.push(cartItem);
-      toast.success('Added to cart!', {
-        position: 'top-center',
-        autoClose: 3000,
-        transition: Bounce,
-        theme: 'colored',
-      });
-    }
+  const cartKey = `cart_${loggedUser.email}`;
+  let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-  };
+  let exists = cart.find((item) => item.id === jay1.id);
+
+  if (exists) {
+    exists.quantity = parseInt(exists.quantity) + parseInt(val);
+    exists.price = parseFloat(jay1.price) * exists.quantity;
+    toast.success('Quantity updated in cart!', {
+      position: 'top-center',
+      autoClose: 3000,
+      transition: Bounce,
+      theme: 'colored',
+    });
+  } else {
+    let cartItem = {
+      id: jay1.id,
+      url: jay1.url,
+      name: jay1.name,
+      price: parseFloat(jay1.price) * val,
+      quantity: parseInt(val),
+    };
+    cart.push(cartItem);
+    toast.success('Added to cart!', {
+      position: 'top-center',
+      autoClose: 3000,
+      transition: Bounce,
+      theme: 'colored',
+    });
+  }
+
+  localStorage.setItem(cartKey, JSON.stringify(cart));
+};
+
 
   // 🔒 Show loading message until jay1 is ready
   if (!jay1) {

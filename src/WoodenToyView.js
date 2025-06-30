@@ -18,30 +18,28 @@ function WoodenToyView() {
   }, [vid]);
 
   const addToCart = () => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (!isLoggedIn) {
-      alert("Please log in first to add items to cart.");
-      navigate("/log"); // Optional: Redirect to login page
-      return;
-    }
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+  if (!loggedUser) {
+    alert("Please log in first to add items to cart.");
+    navigate("/log");
+    return;
+  }
 
-    if (!product || !product.id) {
-      alert("Invalid product.");
-      return;
-    }
+  const cartKey = `cart_${loggedUser.email}`;
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existing = cart.findIndex(item => item.id === product.id);
+  const existingIndex = cart.findIndex(item => item.id === product.id);
 
-    if (existing !== -1) {
-      cart[existing].quantity += 1;
-    } else {
-      cart.push({ ...product, quantity: 1 });
-    }
+  if (existingIndex !== -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Item added to cart!");
-  };
+  localStorage.setItem(cartKey, JSON.stringify(cart));
+  alert("Item added to cart!");
+};
+
 
   if (!product) {
     return (

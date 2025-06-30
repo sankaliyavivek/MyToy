@@ -37,18 +37,16 @@ function Registrastion() {
       return;
     }
 
-    // Get users from localStorage
     let users = JSON.parse(localStorage.getItem('userdata')) || [];
 
-    // Check for duplicate email
     if (users.some((user) => user.email === email)) {
       toast.error("Email already exists!");
       return;
     }
 
-    // Save new user
     users.push({ name, lastname, email, password });
     localStorage.setItem('userdata', JSON.stringify(users));
+    // console.log(users)
 
     toast.success('Registration successful!', {
       position: "top-center",
@@ -63,31 +61,24 @@ function Registrastion() {
   };
 
   return (
-    <div className='container p-3'>
-      <h2 className='text-center'>Registration Form</h2>
-      <div className='d-flex justify-content-center'>
-        <div className='text-start'>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label">First Name</label>
-              <input type="text" value={name} onChange={(e) => setFname(e.target.value)} className="form-control" />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Last Name</label>
-              <input type="text" value={lastname} onChange={(e) => setLname(e.target.value)} className="form-control" />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Email address</label>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Password</label>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" />
-            </div>
-            <button type="submit" className="btn btn-primary">Register</button>
-          </form>
-        </div>
+    <div >
+      <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
       </div>
+      <form className='for register-form' onSubmit={handleSubmit}>
+
+        <h3>Register Here</h3>
+        <label>First Name</label>
+        <input type="text" value={name} onChange={(e) => setFname(e.target.value)} placeholder="First Name" />
+        <label>Last Name</label>
+        <input type="text" value={lastname} onChange={(e) => setLname(e.target.value)} placeholder="Last Name" />
+        <label>Email</label>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+        <label>Password</label>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+        <button type="submit">Register</button>
+      </form>
       <ToastContainer />
     </div>
   );

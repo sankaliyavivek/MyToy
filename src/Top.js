@@ -6,8 +6,8 @@ function Top() {
       <div className='container'>
         <div className='d-flex justify-content-between'>
           <div className='d-flex' style={{color:'white'}}>
-            <li style={{ listStyle: 'none', fontSize: '12px' }} className='me-3'>Call Us: +1 213 974-5898</li>
-            <li style={{ listStyle: 'none', fontSize: '12px', textDecoration: 'underline' }}>Email: toystore@template.com</li>
+            <li style={{ listStyle: 'none', fontSize: '12px' }} className='me-3'>Call Us: +91 9714913273</li>
+            <li style={{ listStyle: 'none', fontSize: '12px', textDecoration: 'underline' }}>Email: sankaliyaToys@gmail.com</li>
 
           </div>
           <div className='bars'>

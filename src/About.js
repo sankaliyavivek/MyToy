@@ -14,7 +14,7 @@ function About() {
     window.scrollTo(0,1000)
   }
   return (
-    <div>
+    <div className='overflow-x-hidden'>
       <Top></Top>
       <Navbars></Navbars>
       <div className='container pt-5 '>

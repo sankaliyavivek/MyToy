@@ -1,13 +1,26 @@
-import React from 'react'
+import gsap from 'gsap';
+import React, { useRef,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 function Content() {
+    const boxRef = useRef();
+
+  useEffect(() => {
+    gsap.from(boxRef.current, {
+      scale: 0,
+      opacity: 0,
+      duration: 1,
+      delay:1,
+      ease: 'back.out(1.7)', // smooth elastic scaling
+    });
+  }, []);
+
     return (
         <div >
             <div className='back'>
                 <div className='backimg'>
                     <div className='say'>
-                        <div className='say1 text-center'>
+                        <div className='say1 text-center' ref={boxRef}>
                             <p >Say Hello to ToyStore!</p>
                             <h3 className='mb-3'>
                                 Free Ecommerce <br></br>
